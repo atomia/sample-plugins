@@ -3,9 +3,9 @@
 Purpose of Automation server plugin SDK is to provide all what is needed for developing plugin for Automation Server. 
 Beside this readme file, here you can find 'AtomiaAutomationServer SDK.zip' which contains:
 
-	- software components which are used for developing plugins - Lib folder
-	- project templates as start point for developing plugin 
-	- setup for testing environment where new developed plugins can be tested
+- software components which are used for developing plugins - Lib folder
+- project templates as start point for developing plugin 
+- setup for testing environment where new developed plugins can be tested
 
 1. How to start?
 
@@ -23,12 +23,12 @@ Beside this readme file, here you can find 'AtomiaAutomationServer SDK.zip' whic
 			
 3. Programming provisioning plugin
 
-	Generally plugin development can be accomplished in next steps:
+Generally plugin development can be accomplished in next steps:
 	
-		- Take appropriate template project and change it according instructions in template specific readme file.
-		- Write plugin code
-		- Change ServiceDescription.xml
-		- Change ResourceDescription.xml
-		- Build and install plugin
+	- Take appropriate template project and change it according instructions in template specific readme file.
+	- Write plugin code
+	- Change ServiceDescription.xml
+	- Change ResourceDescription.xml
+	- Build and install plugin
 	
 	Detailed instructions for every step can be found in template specific readme file.
