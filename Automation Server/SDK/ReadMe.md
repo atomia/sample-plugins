@@ -21,9 +21,7 @@ Beside this readme file, here you can find 'AtomiaAutomationServer SDK.zip' whic
 	- Installed Microsoft .NET Framework 4.0 - you can download it from http://msdn.microsoft.com/en-us/netframework/aa569263	
 	- If you plan to develop plugin module in .NET then you will need Visual Studio 2010 installed.	
 			
-3. Programming provisioning plugin
-
-	Generally plugin development can be accomplished in next steps:
+3. Generally provisioning plugin programming steps	
 	
 	- Take appropriate template project and change it according instructions in template specific readme file.
 	- Write plugin code
