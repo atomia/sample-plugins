@@ -14,7 +14,6 @@ Beside this readme file, here you can find 'AtomiaAutomationServer SDK.zip' whic
 	- Copy template project to your working folder and follow instructions in template specific readme file.
 	- As additional help examine appropriate working example which can be found in Examples folder of this git repository. Examples should be downloaded separately from github.
 
-	
 2. Prerequisites
 
 	- Installed Atomia Automation server testing environment on local machine. It contains lite version of Atomia Automation Server, and as testing tools Atomia Command Line tool and Installed AutomationServerClient. Installation can be found in 'AtomiaAutomationServer SDK.zip'.
