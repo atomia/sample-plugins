@@ -35,6 +35,7 @@
 			You can check if folder is realy deleted if you open our root folder. So, provisioning for delete service is passed succesfully.
 		
 	3.2 Testing using AutomationServerClient.exe
+	
 		Start AutomationServerClient.exe. If you start AutomationServerClient for first time, you should set package which is used for work. From menu open File -> New Package, choose BasePackage and press AddPackage button.		
 	
 		Right mouse click on empty area in service list, Add Child Service -> Folders, change name for folder because that is key property and press OK butoon. New service will appears in list, and you can check in root folder, if you didn't change it in ResourceDescription.xml file, it is c:\TestProvisioningExample\, you will find folder with the same name as created service. 
