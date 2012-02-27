@@ -34,7 +34,7 @@
 			This command will provide deleting of existing service with given service id. ServiceId used in this command "67e9a578-7151-4569-93a0-a1c98c165855" is one we get during testing, you must replace it with logicalid you writed down during add command testing.
 			You can check if folder is realy deleted if you open our root folder. So, provisioning for delete service is passed succesfully.
 	
-	3.2 Testing using AutomationServerClient.exe
+	4.2 Testing using AutomationServerClient.exe
 	
 		Start AutomationServerClient.exe. If you start AutomationServerClient for first time, you should set package which is used for work. From menu open File -> New Package, choose BasePackage and press AddPackage button.
 		
