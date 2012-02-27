@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 1.0.14.731 -->
+<resourceDescription>
+    <bindings>
+        <moduleList>
+            <module name="Atomia.Provisioning.Modules.CmdLocal.CmdLocal" resourceAsignmentPolicy="MatchingServiceName" />
+        </moduleList>
+        <resourceList>
+            <resource name="Cmd">
+                <property name="noname">novalue</property>
+            </resource>
+            <resource name="Folders">
+                <property name="RootFolder">c:\TestProvisioningExample\</property>
+                <property name="ServiceName">Folders</property>
+            </resource>
+        </resourceList>
+    </bindings>
+</resourceDescription>
