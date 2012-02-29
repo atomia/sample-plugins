@@ -20,7 +20,7 @@
 	
 7. Download all files from this directory
 
-8. Run setup.exe from bin subfolder. Now you have SDK and required apps to test examples and develop and test your plugins.
+8. Run setup.exe. Now you have SDK and required apps to test examples and develop and test your plugins.
 
 9. Try to compile and run some examples from: https://github.com/atomia/sample-plugins/tree/master/AutomationServer/Examples
 
