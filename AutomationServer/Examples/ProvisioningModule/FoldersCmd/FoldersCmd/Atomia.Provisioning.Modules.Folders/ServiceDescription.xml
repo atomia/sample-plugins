@@ -19,6 +19,9 @@
                     <property name="ModifyRollbackCmd" friendlyName="Command to be executed to modify Folder, rollback transaction" defaultValue="Atomia.Provisioning.Modules.Folders.exe --Modify --RootFolder {resource[RootFolder]} --Name {service[Name]} --Description {service[Description]}" required="true" />
                     <property name="OperationMappingCmd" friendlyName="Define how opperations are executed" defaultValue="GetFullFolderPath:Atomia.Provisioning.Modules.Folders.exe --CallOp --RootFolder {resource[RootFolder]} --Name {service[Name]}" required="true" />
                 </propertyList>
+				<operationList>
+					<operation name="GetFullFolderPath" />
+				</operationList>
                 <childServiceList>
                     <simpleService name="Files" friendlyName="Files">
                         <propertyList>
@@ -40,6 +43,9 @@
                             <property name="ModifyRollbackCmd" friendlyName="Command to be executed to modify File, rollback transaction" defaultValue="Atomia.Provisioning.Modules.Folders.exe --Modify --RootFolder {resource[RootFolder]} --Name {service[Name]} --ParentFolder {service[parent.Name]} --Content {service[Content]}" required="true" />
                             <property name="OperationMappingCmd" friendlyName="Define how opperations are executed" defaultValue="GetFullFilePath:Atomia.Provisioning.Modules.Folders.exe --CallOp --RootFolder {resource[RootFolder]} --Name {service[Name]} --ParentFolder {service[ParentFolder]}" required="true" />
                         </propertyList>
+						<operationList>
+							<operation name="GetFullFilePath" />
+						</operationList>
                     </simpleService>
                     <simpleService name="FilesWithoutPlugin" friendlyName="Files service, where files are provisioned without command line plugin application. Direct command line commands are used.">
                         <propertyList>
@@ -60,6 +66,9 @@
                             <property name="ModifyRollbackCmd" friendlyName="Command to be executed to modify File, rollback transaction" defaultValue="ren {resource[RootFolder]}{newservice[parent.Name]}\{newservice[Name]} {oldservice[Name]}" required="true" />
                             <property name="OperationMappingCmd" friendlyName="Define how opperations are executed" defaultValue="GetFullFilePath:echo {resource[RootFolder]}{service[parent.Name]}\{service[Name]}" required="true" />
                         </propertyList>
+						<operationList>
+							<operation name="GetFullFilePath" />
+						</operationList>
                     </simpleService>
                 </childServiceList>
             </simpleService>
