@@ -7,7 +7,7 @@
                     <property name="Name" friendlyName="Folder Name" key="true" defaultValue="ChangeMe" />
                     <property name="Description" friendlyName="General description." defaultValue="Change this default description value" />
                     <property name="StdinStdout" friendlyName="Are commands going to accept and return JSON encoded service via stdin/stdout" defaultValue="false" required="true" />                    
-                    <property name="UseCmdLinePlugin" friendlyName="Are commands going to use plugin command line app for provisioning" defaultValue="false" required="true" />
+                    <property name="UseCmdLinePlugin" friendlyName="Are commands going to use plugin command line app for provisioning" defaultValue="true" required="true" />
                     <property name="AddExecuteCmd" friendlyName="Command to be executed to add Folder, begin transaction" defaultValue="Atomia.Provisioning.Modules.Folders.exe --Add --RootFolder {resource[RootFolder]} --Name {service[Name]} --Description {service[Description]}" required="true" />
                     <property name="AddCommitCmd"  friendlyName="Command to be executed to add Folder, commit transaction" defaultValue="Atomia.Provisioning.Modules.Folders.exe --Add --RootFolder {resource[RootFolder]} --Name {service[Name]} --Description {service[Description]}" required="true" />
                     <property name="AddRollbackCmd" friendlyName="Command to be executed to add Folder, rollback transaction" defaultValue="Atomia.Provisioning.Modules.Folders.exe --Add --RootFolder {resource[RootFolder]} --Name {service[Name]} --Description {service[Description]}" required="true" />
@@ -28,7 +28,7 @@
                             <property name="Content" friendlyName="File content" defaultValue="123"/>
                             <property name="TestChangesPropagation" friendlyName="TestChangesPropagation" defaultValue=""/>
                             <property name="StdinStdout" friendlyName="Is command going to accept and return JSON encoded service via stdin/stdout" defaultValue="false" required="true" />
-                            <property name="UseCmdLinePlugin" friendlyName="Are commands going to use plugin command line app for provisioning" defaultValue="false" required="true" />
+                            <property name="UseCmdLinePlugin" friendlyName="Are commands going to use plugin command line app for provisioning" defaultValue="true" required="true" />
                             <property name="AddExecuteCmd" friendlyName="Command to be executed to add File, begin transaction" defaultValue="Atomia.Provisioning.Modules.Folders.exe --Add --RootFolder {resource[RootFolder]} --Name {service[Name]} --ParentFolder {service[parent.Name]} --Content {service[Content]}" required="true" />
                             <property name="AddCommitCmd"  friendlyName="Command to be executed to add File, commit transaction" defaultValue="Atomia.Provisioning.Modules.Folders.exe --Add --RootFolder {resource[RootFolder]} --Name {service[Name]} --ParentFolder {service[parent.Name]} --Content {service[Content]}" required="true" />
                             <property name="AddRollbackCmd" friendlyName="Command to be executed to add File, rollback transaction" defaultValue="Atomia.Provisioning.Modules.Folders.exe --Add --RootFolder {resource[RootFolder]} --Name {service[Name]} --ParentFolder {service[parent.Name]} --Content {service[Content]}" required="true" />
