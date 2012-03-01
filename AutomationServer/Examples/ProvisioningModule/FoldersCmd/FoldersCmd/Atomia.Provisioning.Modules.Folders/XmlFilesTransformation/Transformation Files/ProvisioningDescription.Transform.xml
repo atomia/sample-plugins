@@ -64,8 +64,6 @@
                 </childServiceList>
             </simpleService>
         </simpleServiceList>
-        <complexServiceList>
-        </complexServiceList>
     </servicesDescription>	
 	<packageDescription>
     <packageList>
@@ -80,8 +78,6 @@
             </group>            
           </globalLimitation>
         </serviceLimitationList>
-        <init>          
-        </init>
       </package>
     </packageList>
   </packageDescription>
