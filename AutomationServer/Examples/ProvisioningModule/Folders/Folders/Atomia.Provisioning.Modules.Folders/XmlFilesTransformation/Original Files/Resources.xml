@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resourceDescription>
+    <bindings>
+        <moduleList>
+            <module name="Atomia.Provisioning.Modules.Folders.Folders" resourceAsignmentPolicy="RoundRobin" />
+        </moduleList>
+        <resourceList>
+			<resource name="Folders">
+                <property name="RootFolder">c:\TestProvisioningExample\</property>
+            </resource>
+        </resourceList>
+    </bindings>
+</resourceDescription>

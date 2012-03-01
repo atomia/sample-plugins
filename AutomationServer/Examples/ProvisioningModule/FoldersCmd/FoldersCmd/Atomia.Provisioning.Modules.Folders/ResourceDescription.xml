@@ -6,7 +6,7 @@
             <module name="Atomia.Provisioning.Modules.CmdLocal.CmdLocal" resourceAsignmentPolicy="MatchingServiceName" />
         </moduleList>
         <resourceList>
-            <resource name="Cmd">
+            <resource name="CmdLocal">
                 <property name="noname">novalue</property>
             </resource>
             <resource name="Folders">
