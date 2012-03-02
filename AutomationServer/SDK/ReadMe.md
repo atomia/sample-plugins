@@ -12,6 +12,7 @@
 5. Be sure you have installed microsoft message queue
 	
 6. in command prompt execute respectively:
+
 	C:\Windows\Microsoft.NET\Framework\v4.0.30319>aspnet_regiis.exe -u
 	C:\Windows\Microsoft.NET\Framework\v4.0.30319>aspnet_regiis.exe -i	
 	iisreset
