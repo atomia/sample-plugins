@@ -25,6 +25,17 @@
 
 9. Run setup.exe. Now you have SDK and required apps to test examples and develop and test your plugins.
 
-10. Try to compile and run some examples from: https://github.com/atomia/sample-plugins/tree/master/AutomationServer/Examples
+10. Make sure, C:\Program Files (x86)\Atomia\AutomationServerCmdClient\atomia.conf looks like this:
+		[Automation Server API]
+		username=
+		password=
+		url=http://localhost/CoreAPI.svc?wsdl
+		bootstrap=true
 
-11. Develop your plugins according to https://github.com/atomia/sample-plugins/tree/master/AutomationServer/SDK/ProjectTemplates
+11. Try to compile and run some examples from: https://github.com/atomia/sample-plugins/tree/master/AutomationServer/Examples
+
+12. If you get error message similar to: Could not load type 'System.ServiceModel.Activation.HttpModule' from assembly 'System.ServiceModel, Version=3.0.0.0 ... ',
+	go to to folder %windir%\Microsoft.NET\Framework\v4.0.30319 or %windir%\Microsoft.NET\Framework64\v4.0.30319 (on a 64-bit machine) and start next command:
+	aspnet_regiis.exe /iru	
+
+13. Develop your plugins according to https://github.com/atomia/sample-plugins/tree/master/AutomationServer/SDK/ProjectTemplates
