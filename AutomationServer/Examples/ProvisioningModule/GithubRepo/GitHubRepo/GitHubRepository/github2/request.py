@@ -37,7 +37,8 @@ DEFAULT_GITHUB_URL = "https://github.com"
 
 #: Logger for requests module
 LOGGER = logging.getLogger('github2.request')
-
+'''LOGGER.propagate = False'''
+logging.basicConfig(level=logging.CRITICAL)
 #: Whether github2 is using the system's certificates for SSL connections
 SYSTEM_CERTS = not httplib2.CA_CERTS.startswith(path.dirname(httplib2.__file__))
 #: Whether github2 is using the cert's from the file given in $CURL_CA_BUNDLE

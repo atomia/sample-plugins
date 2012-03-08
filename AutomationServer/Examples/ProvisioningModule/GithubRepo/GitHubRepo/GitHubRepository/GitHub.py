@@ -86,7 +86,7 @@ class GitHub(object):
         
     
     def CallOperation(self, service, operationName, operationArgument, resource):
-        command = self.GetModuleCommand(service, None, resource, 'CallOperation', -1, None)
+        command = self.GetModuleCommand(service, None, resource, 'CallOperation', -1)
         return command.CallOperation(operationName, operationArgument)
         
         
@@ -248,8 +248,7 @@ class GitHub(object):
 
     
     
-    def HandleCallOperation(self, serviceName):
-        print 'HandleCallOperation'
+    def HandleCallOperation(self, serviceName):        
 
         ''' region Check args number '''
         if len(sys.argv) != self.startArgIndex + 6:                        
@@ -307,7 +306,7 @@ class GitHub(object):
         commandType = '';
         
         if sys.argv[self.startArgIndex + 1] == 'CallOperation':            
-            commandType = sys.argv[1]
+            commandType = sys.argv[self.startArgIndex + 1]
         else:
             self.transactionContext = string.replace(sys.argv[self.startArgIndex + 1], "$", "")
             commandType = sys.argv[self.startArgIndex + 2]
