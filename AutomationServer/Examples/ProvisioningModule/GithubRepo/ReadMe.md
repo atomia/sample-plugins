@@ -8,6 +8,7 @@
 
 	3.1 If you want to change example and test changes, you must have installed:
 		- python 2.7 (http://www.python.org/download/releases/2.7.2/)
+		
 		- cx-freeze (http://sourceforge.net/projects/cx-freeze/files/4.2.3/cx_Freeze-4.2.3.win-amd64-py2.7.msi/download)
 		
 		After you made changes you should start makeWIthCompile.bat instead of make.bat
