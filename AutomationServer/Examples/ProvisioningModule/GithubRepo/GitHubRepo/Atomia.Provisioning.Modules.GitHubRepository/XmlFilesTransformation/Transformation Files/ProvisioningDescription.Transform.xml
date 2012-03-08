@@ -1,0 +1,44 @@
+﻿<provisioningDescription>
+    <servicesDescription>	
+        <simpleServiceList>
+			<simpleService name="GitHubRepository" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform" xdt:Transform="Remove" xdt:Locator="Match(name)" />			
+            <simpleService name="GitHubRepository" friendlyName="Module for managing GitHub Repository" providingModule="Atomia.Provisioning.Modules.CmdLocal.CmdLocal" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform" xdt:Transform="Insert">
+				<propertyList> 
+					<property name="Id" friendlyName="Internal Id" defaultValue="123" /> 
+					<property name="Name" friendlyName="Repository Name" defaultValue="ChangeMe" key="true" /> 
+					<property name="Description" friendlyName="Repository Description" defaultValue="" /> 
+					<property name="HomePageUrl" friendlyName="Repository HomePageUrl Url" defaultValue="" /> 
+					<property name="IsPublic" friendlyName="Repository is public" defaultValue="true" /> 
+					<property name="StdinStdout" friendlyName="Is command going to accept and return JSON encoded service via stdin/stdout" defaultValue="false" required="true" /> 
+					<property name="UseCmdLinePlugin" friendlyName="Are commands going to use plugin command line app for provisioning" defaultValue="true" required="true" /> 
+					<property name="AddExecuteCmd" friendlyName="Command to be executed to add Repository, begin transaction" defaultValue="GitHubRepository\Atomia.Provisioning.Modules.GitHubRepository.exe --Add --UserName {resource[UserName]} --APIToken {resource[APIToken]} --Name {service[Name]} --Description {service[Description]} --HomePageUrl {service[HomePageUrl]} --IsPublic {service[IsPublic]}" required="true" /> 
+					<property name="AddCommitCmd" friendlyName="Command to be executed to add Repository, commit transaction" defaultValue="GitHubRepository\Atomia.Provisioning.Modules.GitHubRepository.exe --Add --UserName {resource[UserName]} --APIToken {resource[APIToken]} --Name {service[Name]} --Description {service[Description]} --HomePageUrl {service[HomePageUrl]} --IsPublic {service[IsPublic]}" required="true" /> 
+					<property name="AddRollbackCmd" friendlyName="Command to be executed to add Repository, rollback transaction" defaultValue="GitHubRepository\Atomia.Provisioning.Modules.GitHubRepository.exe --Add --UserName {resource[UserName]} --APIToken {resource[APIToken]} --Name {service[Name]} --Description {service[Description]} --HomePageUrl {service[HomePageUrl]} --IsPublic {service[IsPublic]}" required="true" /> 
+					<property name="RemoveExecuteCmd" friendlyName="Command to be executed to remove Repository, begin transaction" defaultValue="GitHubRepository\Atomia.Provisioning.Modules.GitHubRepository.exe --Remove --UserName {resource[UserName]} --APIToken {resource[APIToken]} --Name {service[Name]} --Description {service[Description]} --HomePageUrl {service[HomePageUrl]} --IsPublic {service[IsPublic]}" required="true" /> 
+					<property name="RemoveCommitCmd" friendlyName="Command to be executed to remove Repository, commit transaction" defaultValue="GitHubRepository\Atomia.Provisioning.Modules.GitHubRepository.exe --Remove --UserName {resource[UserName]} --APIToken {resource[APIToken]} --Name {service[Name]} --Description {service[Description]} --HomePageUrl {service[HomePageUrl]} --IsPublic {service[IsPublic]}" required="true" /> 
+					<property name="RemoveRollbackCmd" friendlyName="Command to be executed to remove Repository, rollback transaction" defaultValue="GitHubRepository\Atomia.Provisioning.Modules.GitHubRepository.exe --Remove --UserName {resource[UserName]} --APIToken {resource[APIToken]} --Name {service[Name]} --Description {service[Description]} --HomePageUrl {service[HomePageUrl]} --IsPublic {service[IsPublic]}" required="true" /> 
+					<property name="ModifyExecuteCmd" friendlyName="Command to be executed to modify Repository, begin transaction" defaultValue="GitHubRepository\Atomia.Provisioning.Modules.GitHubRepository.exe --Modify --UserName {resource[UserName]} --APIToken {resource[APIToken]} --Name {service[Name]} --Description {service[Description]} --HomePageUrl {service[HomePageUrl]} --IsPublic {service[IsPublic]}" required="true" /> 
+					<property name="ModifyCommitCmd" friendlyName="Command to be executed to modify Repository, commit transaction" defaultValue="GitHubRepository\Atomia.Provisioning.Modules.GitHubRepository.exe --Modify --UserName {resource[UserName]} --APIToken {resource[APIToken]} --Name {service[Name]} --Description {service[Description]} --HomePageUrl {service[HomePageUrl]} --IsPublic {service[IsPublic]}" required="true" /> 
+					<property name="ModifyRollbackCmd" friendlyName="Command to be executed to modify Repository, rollback transaction" defaultValue="GitHubRepository\Atomia.Provisioning.Modules.GitHubRepository.exe --Modify --UserName {resource[UserName]} --APIToken {resource[APIToken]} --Name {service[Name]} --Description {service[Description]} --HomePageUrl {service[HomePageUrl]} --IsPublic {service[IsPublic]}" required="true" /> 
+					<property name="OperationMappingCmd" friendlyName="Define how opperations are executed" defaultValue="GetRepositoryHomePageUrl:GitHubRepository\Atomia.Provisioning.Modules.GitHubRepository.exe --CallOp --Url {service[Url]}" required="true" /> 
+				</propertyList> 
+			</simpleService>
+        </simpleServiceList>
+    </servicesDescription>	
+	<packageDescription>
+    <packageList>
+      <package name="BasePackage" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform" xdt:Transform="Replace" xdt:Locator="Match(name)">
+        <serviceList>
+          <service name="GitHubRepository"/>
+        </serviceList>
+        <serviceLimitationList>
+          <globalLimitation>
+            <group maxCount="100">
+              <service name="GitHubRepository" />
+            </group>            
+          </globalLimitation>
+        </serviceLimitationList>
+      </package>
+    </packageList>
+  </packageDescription>  
+</provisioningDescription>
