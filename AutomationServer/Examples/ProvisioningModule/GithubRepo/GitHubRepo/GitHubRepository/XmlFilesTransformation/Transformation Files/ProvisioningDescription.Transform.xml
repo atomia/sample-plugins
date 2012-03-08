@@ -21,7 +21,10 @@
 					<property name="ModifyCommitCmd" friendlyName="Command to be executed to modify Repository, commit transaction" defaultValue="GitHubRepository\Atomia.Provisioning.Modules.GitHubRepository.exe --Modify --UserName {resource[UserName]} --APIToken {resource[APIToken]} --Name {service[Name]} --Description {service[Description]} --HomePageUrl {service[HomePageUrl]} --IsPublic {service[IsPublic]}" required="true" /> 
 					<property name="ModifyRollbackCmd" friendlyName="Command to be executed to modify Repository, rollback transaction" defaultValue="GitHubRepository\Atomia.Provisioning.Modules.GitHubRepository.exe --Modify --UserName {resource[UserName]} --APIToken {resource[APIToken]} --Name {service[Name]} --Description {service[Description]} --HomePageUrl {service[HomePageUrl]} --IsPublic {service[IsPublic]}" required="true" /> 
 					<property name="OperationMappingCmd" friendlyName="Define how opperations are executed" defaultValue="GetRepositoryHomePageUrl:GitHubRepository\Atomia.Provisioning.Modules.GitHubRepository.exe --CallOp --Url {service[Url]}" required="true" /> 
-				</propertyList> 
+				</propertyList>
+				<operationList>
+					<operation name="GetRepositoryHomePageUrl" />
+				</operationList>
 			</simpleService>
         </simpleServiceList>
     </servicesDescription>	
