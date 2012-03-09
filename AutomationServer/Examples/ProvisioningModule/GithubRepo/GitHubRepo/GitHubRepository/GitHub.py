@@ -221,12 +221,11 @@ class GitHub(object):
         self.ModifyService(serviceOld, serviceNew, resource)
     
         
-        if self.serviceNewFull != None:
-        
-            if self.serviceNewFull["StdinStdout"].ToLower() == "true":
-                
+        if self.serviceNewFull != None:        
+            
+            if string.lower(self.serviceOldFull['current']['StdinStdout']) == "true":    
                 for prop in serviceNew.Properties:
-                    self.serviceFull['current'][prop.Name] = prop.Value
+                    self.serviceNewFull['current'][prop.Name] = prop.Value
                 
                 jsonSerializedFullService = self.common.SerializeService(self.serviceNewFull)
 

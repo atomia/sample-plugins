@@ -18,6 +18,7 @@
 	
 		<property name="UserName">testgithubusername</property>
 		<property name="APIToken">testgithubapitoken</property>
+		after changes are made, reset iis with iisreset command
 
 5. Try some of the following tests:
 	
