@@ -27,7 +27,13 @@ class ModuleService(object):
                 
         return propValue
     
-    
+    def SetPropertyValue(self, propertyName, propertyValue):
+        
+        for prop in self.Properties:
+            if prop.Name == propertyName:
+                prop.Value = propertyValue
+                
+                
     
 
 class ResourceDescription(object):

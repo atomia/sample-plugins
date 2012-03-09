@@ -34,13 +34,17 @@ class GitHubRepositoryCommand(object):
                 repoIsPublic = False
             
             createdRepo = gh.repos.create(repoName, repoDescription, repoUrl, repoIsPublic)
+            
+            self.Service.SetPropertyValue('Url', createdRepo.url)
                         
+            return self.Service
+            
         elif "CommitTransaction": pass
             
         elif "RollBackTransaction":            
             repoName = self.Service.GetPropertyValue('Name')
-            gh.repos.delete(repoName)
-           
+            gh.repos.delete(repoName)       
+        
             
     def ExecuteModify(self):        
         
@@ -57,8 +61,9 @@ class GitHubRepositoryCommand(object):
             
         
         repoName = self.Service.GetPropertyValue('Name')
-        
-        '''gh.repos.set_description(repoName, 'description444')'''
+        username = self.Resource.GetPropertyValue('UserName')
+        descriptionNew = self.NewService.GetPropertyValue('Description')
+        descriptionOld = self.Service.GetPropertyValue('Description')
         
         if self.TransactionContext == "BeginTransaction":
             
@@ -67,7 +72,11 @@ class GitHubRepositoryCommand(object):
                     gh.repos.set_public(repoName)
                 else:
                     gh.repos.set_private(repoName)
-                    
+            
+            gh.repos.set_description(repoName, descriptionNew, username)
+            
+            self.Service.SetPropertyValue('Description', descriptionNew)
+            
         elif "CommitTransaction": pass
             
         elif "RollBackTransaction":            
@@ -76,6 +85,10 @@ class GitHubRepositoryCommand(object):
                     gh.repos.set_public(repoName)
                 else:
                     gh.repos.set_private(repoName)
+            
+            gh.repos.set_description(repoName, descriptionOld, username)
+            
+            self.Service.SetPropertyValue('Description', descriptionOld)
                 
 
     def ExecuteRemove(self):
@@ -122,8 +135,8 @@ class GitHubRepositoryCommand(object):
         
         result = '';        
 
-        if operationName == "GetRepositoryHomePageUrl":                    
-            result = self.Service.GetPropertyValue("HomePageUrl")
+        if operationName == "GetRepositoryUrl":                    
+            result = self.Service.GetPropertyValue("Url")
         else:
             raise 'Called operation' + operationName + 'is not supported.' 
         

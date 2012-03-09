@@ -79,53 +79,16 @@ class common(object):
         return service
 
 
-    def DeserializeService(self, serviceSerialized):        
+    def DeserializeService(self, serviceSerialized):
         
-        result = None
-
         serviceFull = json.loads(serviceSerialized)
         
-        '''serviceKey = "current";
-        lastService = None;
-
-        i = 0
-        for service in serviceFull:        
-            
-            Dictionary < string, string > oneServiceDict = serviceFull[serviceKey];
-
-                ModuleService tempService = new ModuleService(oneServiceDict["serviceMetaData_Name"], oneServiceDict["serviceMetaData_PhysicalID"]);
-                tempService.InstanceId = oneServiceDict["serviceMetaData_InstanceId"];
-                // tempService.LogicalID = oneServiceDict["serviceMetaData_LogicalID"]; readonly
-                // tempService.Name = oneServiceDict["serviceMetaData_Name"]; readonly
-                // tempService.PhysicalID = oneServiceDict["serviceMetaData_PhysicalID"]; set in constructor
-                tempService.ProvisioningId = oneServiceDict["serviceMetaData_ProvisioningId"];
-
-                foreach (KeyValuePair < String, String > entry in oneServiceDict)
-                {
-                    if (entry.Key.IndexOf("serviceMetaData_") < 0)
-                    {
-                        tempService.Properties.Add(new ModuleServiceProperty(entry.Key, entry.Value));
-                    }
-                }
-
-                if (serviceKey == "current")
-                {
-                    lastService = tempService;
-                    result = lastService;
-                }
-                else
-                {
-                    lastService.Parent = tempService;
-                    lastService = lastService.Parent;
-                }
-                serviceKey = serviceKey + ".parent";
-
-            }
-
-            return result;
-
-        }'''
+        return serviceFull
+    
         
-        return result
+    def SerializeService(self, service):
         
+        jsonSerializedService = json.dumps(service)
+
+        return jsonSerializedService;
         

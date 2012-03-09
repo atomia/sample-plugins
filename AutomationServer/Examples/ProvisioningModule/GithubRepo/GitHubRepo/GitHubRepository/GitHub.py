@@ -161,9 +161,8 @@ class GitHub(object):
         
     '''methods which are called by AutomathedServer and CmdLocal - END '''
         
-    def HandleAddRemove(self, serviceName, commandType):
+    def HandleAddRemove(self, serviceName, commandType):        
         
-        print 'HandleAddRemove'
         ''' Check args number '''
         if not(self.argsLength == self.startArgIndex + 5 or self.argsLength == self.startArgIndex + 6):
             raise 'Wrong number of arguments. 5 or 6 arguments expected'
@@ -181,11 +180,11 @@ class GitHub(object):
             self.RemoveService(service, resource)
         
         ''' After add we should update service properties if any is changed, if StdinStdOut is true '''
-        if self.serviceFull != None:             
-            if string.lower(self.serviceFull["StdinStdout"]) == "true":
+        if self.serviceFull != None:            
+            if string.lower(self.serviceFull['current']['StdinStdout']) == "true":
                             
                 for prop in service.Properties:
-                    self.serviceFull[prop.Name] = prop.Value
+                    self.serviceFull['current'][prop.Name] = prop.Value
                 
                 jsonSerializedFullService = self.common.SerializeService(self.serviceFull)
                                 
@@ -193,19 +192,18 @@ class GitHub(object):
                 sCurrentMessagePart = ''
                 sRestOfMessage = jsonSerializedFullService
                 while bLoop:
-                    if sRestOfMessage.Length < 1024:
+                    if len(sRestOfMessage) < 1024:
                         sCurrentMessagePart = sRestOfMessage
                         bLoop = False
                     else:
-                        sCurrentMessagePart = sRestOfMessage[0, 1023];
+                        sCurrentMessagePart = sRestOfMessage[0: 1023];
                         sRestOfMessage = string.replace(sRestOfMessage, sCurrentMessagePart, "")
 
                     print sCurrentMessagePart
 
 
 
-    def HandleModify(self, serviceName):
-        print 'HandleModify'
+    def HandleModify(self, serviceName):        
             
         ''' Check args number '''
         if not(self.argsLength == self.startArgIndex + 6 or self.argsLength == self.startArgIndex + 8):
@@ -226,9 +224,9 @@ class GitHub(object):
         if self.serviceNewFull != None:
         
             if self.serviceNewFull["StdinStdout"].ToLower() == "true":
-            
+                
                 for prop in serviceNew.Properties:
-                    self.serviceNewFull[prop.Name] = prop.Value
+                    self.serviceFull['current'][prop.Name] = prop.Value
                 
                 jsonSerializedFullService = self.common.SerializeService(self.serviceNewFull)
 
@@ -237,11 +235,11 @@ class GitHub(object):
                 sRestOfMessage = jsonSerializedFullService
                 while bLoop:
                 
-                    if sRestOfMessage.Length < 1024:                    
+                    if len(sRestOfMessage) < 1024:                    
                         sCurrentMessagePart = sRestOfMessage
                         bLoop = False
                     else:
-                        sCurrentMessagePart = sRestOfMessage[0, 1023]
+                        sCurrentMessagePart = sRestOfMessage[0: 1023]
                         sRestOfMessage = string.replace(sRestOfMessage, sCurrentMessagePart, "")
 
                     print sCurrentMessagePart
@@ -288,7 +286,7 @@ class GitHub(object):
                 sCurrentMessagePart = sRestOfMessage
                 bLoop = False            
             else:            
-                sCurrentMessagePart = sRestOfMessage[0, 1023]
+                sCurrentMessagePart = sRestOfMessage[0: 1023]
                 sRestOfMessage = string.replace(sRestOfMessage, sCurrentMessagePart, "")
 
             print sCurrentMessagePart        

@@ -3,6 +3,8 @@ from github2.core import (BaseData, GithubCommand, Attribute, DateAttribute,
 
 from github2.users import User
 
+import json
+
 
 class Repository(BaseData):
     name = Attribute("Name of repository.")
@@ -149,10 +151,13 @@ class Repositories(GithubCommand):
         return self.make_request("set/public", project)
     
     @requires_auth
-    def set_description(self, project, description):
-        """ Set description for project """
-        repo_data = 'values[description]=' + description
-        return self.make_request("show", project, post_data=repo_data, method="POST")
+    def set_description(self, project, description, username):
+        """ Set description for project """        
+        
+        descrPrepared = '{"values[description]":"' + description + '"}'               
+        repo_data = json.loads(descrPrepared)
+        
+        return self.make_request("show/" + username, project, post_data=repo_data, method="POST")
     
         
     
