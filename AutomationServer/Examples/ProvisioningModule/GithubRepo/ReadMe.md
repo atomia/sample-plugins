@@ -22,7 +22,7 @@
 
 5. Try some of the following tests:
 	
-	4.1 Testing using atomia command line tool
+	5.1 Testing using atomia command line tool
 		
 		- Add service:
 			
@@ -48,7 +48,7 @@
 			This command will provide deleting of existing service with given service id. ServiceId used in this command "67e9a578-7151-4569-93a0-a1c98c165855" is one we get during testing, you must replace it with logicalid you writed down during add command testing.
 			You can check in github if repository is realy deleted.
 	
-	4.2 Testing using AutomationServerClient.exe
+	5.2 Testing using AutomationServerClient.exe
 	
 		Start AutomationServerClient.exe. If you start AutomationServerClient for first time, you should set package which is used for work. From menu open File -> New Package, choose BasePackage and press AddPackage button.
 		
