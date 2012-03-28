@@ -1,5 +1,7 @@
 ﻿Automation server plugin SDK
 
+*Note: This is currently only tested on Windows-7, if you are using anything else you are treading new ground*
+
 1. Be sure you have .NET Framework 4.0 installed - you can download it from http://msdn.microsoft.com/en-us/netframework/aa569263
 
 2. Be sure you have installed IIS with support for .net and asp
