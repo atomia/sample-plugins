@@ -18,16 +18,17 @@ Get started
 
 You should first follow the instructions for installing
 the Automation Server SDK at
-[https://github.com/atomia/sample-plugins/tree/master/AutomationServer/SDK]
+https://github.com/atomia/sample-plugins/tree/master/AutomationServer/SDK
 
 Then you can checkout some examples modules for Automation Server:
-* A python module for managing github repositorys at [https://github.com/atomia/sample-plugins/tree/master/AutomationServer/Examples/ProvisioningModule/GithubRepo]
-* A very simple native module (C#) for managing folders at [https://github.com/atomia/sample-plugins/tree/master/AutomationServer/Examples/ProvisioningModule/Folders]
+
+* A python module for managing github repositorys at https://github.com/atomia/sample-plugins/tree/master/AutomationServer/Examples/ProvisioningModule/GithubRepo
+* A very simple native module (C#) for managing folders at https://github.com/atomia/sample-plugins/tree/master/AutomationServer/Examples/ProvisioningModule/Folders
 
 License
 -------
 
-The examples are licensed under the ISC-license. See [https://github.com/atomia/sample-pluginsblob/master/LICENSE-EXAMPLES.txt](LICENSE-EXAMPLES.txt) for details.
+The examples are licensed under the ISC-license. See https://github.com/atomia/sample-plugins/blob/master/LICENSE-EXAMPLES.txt for details.
 
 The SDK installs a copy of Atomia Automation Server running in development mode (without authentication etc). You have a license to use it for module development
 purposes only.
