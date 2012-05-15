@@ -10,12 +10,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Atomia.Provisioning.Modules.Haproxy</RootNamespace>
     <AssemblyName>Atomia.Provisioning.Modules.Haproxy</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,13 +38,14 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Atomia.Provisioning.Base, Version=1.0.11.954, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\References\Atomia Provisioning SDK\Atomia.Provisioning.Base.dll</HintPath>
+    <Reference Include="Atomia.Provisioning.Base">
+      <HintPath>..\FoldersCmd\FoldersCmd\Lib\Atomia.Provisioning.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Atomia.Provisioning.Base.Module, Version=1.0.10.931, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\References\Atomia Provisioning SDK\Atomia.Provisioning.Base.Module.dll</HintPath>
+    <Reference Include="Atomia.Provisioning.Base.Module">
+      <HintPath>..\FoldersCmd\FoldersCmd\Lib\Atomia.Provisioning.Base.Module.dll</HintPath>
+    </Reference>
+    <Reference Include="Atomia.Provisioning.Modules.Common">
+      <HintPath>..\FoldersCmd\FoldersCmd\Lib\Atomia.Provisioning.Modules.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -73,9 +75,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Solution\ProvisioningModules\SolutionInfo.cs">
-      <Link>Properties\SolutionInfo.cs</Link>
-    </Compile>
     <Compile Include="Commands\HaproxyCommandBase.cs" />
     <Compile Include="Commands\ListenerSettingCommand.cs" />
     <Compile Include="Commands\ListenerCommand.cs" />
@@ -95,12 +94,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Atomia.Provisioning.Modules.Common.csproj">
-      <Project>{4F6CFECD-38FB-4755-B590-D0D8CF5A35D5}</Project>
-      <Name>Atomia.Provisioning.Modules.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="ExceptionMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
@@ -109,6 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Haproxy-Example.cfg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
