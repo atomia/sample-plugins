@@ -26,6 +26,7 @@ namespace Atomia.Provisioning.Modules.Haproxy.Commands
             this.jsonSerializer = new JavaScriptSerializer();
         }
 
+        #region REST handling methods
         private WebRequest REST_GetClient(string uri)
         {
             string baseuri = this.Resource["AgentURL"];
@@ -154,6 +155,25 @@ namespace Atomia.Provisioning.Modules.Haproxy.Commands
             }
         }
 
+        protected virtual Dictionary<string, string> GetPostData(ModuleService service)
+        {
+            var post_data = new Dictionary<string, string>();
+
+            foreach (ModuleServiceProperty prop in service.Properties)
+            {
+                if (!string.IsNullOrEmpty(prop.Value))
+                {
+                    post_data[prop.Name.ToLower()] = prop.Value;
+                }
+            }
+
+            return post_data;
+        }
+
+        #endregion
+
+        #region Module interface methods
+
         protected override void ExecuteRemove(ModuleService moduleService)
         {
             this.REST_Execute_DELETE(this.GetResourceURL(moduleService));
@@ -180,24 +200,13 @@ namespace Atomia.Provisioning.Modules.Haproxy.Commands
         protected override void ValidateService(ModuleService moduleService)
         {
         }
+        #endregion
+
+        #region Haproxy module base class methods
 
         protected abstract string GetResourceURL(ModuleService moduleService);
 
-
-        protected virtual Dictionary<string, string> GetPostData(ModuleService service)
-        {
-            var post_data = new Dictionary<string, string>();
-
-            foreach (ModuleServiceProperty prop in service.Properties)
-            {
-                if (!string.IsNullOrEmpty(prop.Value))
-                {
-                    post_data[prop.Name.ToLower()] = prop.Value;
-                }
-            }
-
-            return post_data;
-        }
+        #endregion
 
     }
 }
