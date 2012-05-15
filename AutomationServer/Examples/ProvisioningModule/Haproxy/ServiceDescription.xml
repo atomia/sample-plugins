@@ -1,0 +1,116 @@
+﻿<provisioningDescription>
+  <servicesDescription>
+    <simpleServiceList>
+      <simpleService name="HaproxyGlobal" friendlyName="Global daemon setting." providingModule="Atomia.Provisioning.Modules.Haproxy.Haproxy">
+        <propertyList>
+          <property name="Id" friendlyName="Id of the setting, set by module" key="true" />
+          <property name="Setting" friendlyName="Name of the setting" key="true" required="true" />
+          <property name="Value" friendlyName="Value of the setting" key="true" required="true" />
+        </propertyList>
+      </simpleService>
+      <simpleService name="HaproxyDefault" friendlyName="Listener default setting." providingModule="Atomia.Provisioning.Modules.Haproxy.Haproxy">
+        <propertyList>
+          <property name="Id" friendlyName="Id of the setting, set by module" key="true" />
+          <property name="Setting" friendlyName="Name of the setting" key="true" required="true" />
+          <property name="Value" friendlyName="Value of the setting" key="true" required="true" />
+        </propertyList>
+      </simpleService>
+      <simpleService name="HaproxyListener" friendlyName="Listener." providingModule="Atomia.Provisioning.Modules.Haproxy.Haproxy">
+        <propertyList>
+          <property name="Id" friendlyName="Id of the listener, set by module" key="true" />
+          <property name="Name" friendlyName="Name of the listener" key="true" required="true" />
+          <property name="Ip" friendlyName="Ip to bind to" required="true" />
+          <property name="Port" friendlyName="Port to bind to" required="true" />
+        </propertyList>
+        <operationList>
+          <!-- Retrieves JSON format stats for this listener. -->
+          <operation name="GetStats"/>
+        </operationList>
+        <childServiceList>
+          <simpleService name="HaproxyListenerSetting" friendlyName="Listener setting." providingModule="Atomia.Provisioning.Modules.Haproxy.Haproxy">
+            <propertyList>
+              <property name="Id" friendlyName="Id of the setting, set by module" key="true" />
+              <property name="Setting" friendlyName="Name of the setting" key="true" required="true" />
+              <property name="Value" friendlyName="Value of the setting" key="true" required="true" />
+            </propertyList>
+          </simpleService>          
+        </childServiceList>
+      </simpleService>
+    </simpleServiceList>
+    <complexServiceList>
+      <complexService name="CsGlobalSettings">
+        <partList>
+          <partService name="HaproxyGlobal" />
+        </partList>
+        <init>
+          <add partName="HaproxyGlobal">
+            <initPropertyList>
+              <initProperty name="Setting" value="maxconn" />
+              <initProperty name="Value" value="50000" />
+            </initPropertyList>
+          </add>
+        </init>
+      </complexService>
+      <complexService name="CsLoadBalancerDefaults">
+        <partList>
+          <partService name="HaproxyDefault" />
+        </partList>
+        <init>
+          <add partName="HaproxyDefault">
+            <initPropertyList>
+              <initProperty name="Setting" value="contimeout" />
+              <initProperty name="Value" value="50000" />
+            </initPropertyList>
+          </add>
+          <add partName="HaproxyDefault">
+            <initPropertyList>
+              <initProperty name="Setting" value="clitimeout" />
+              <initProperty name="Value" value="50000" />
+            </initPropertyList>
+          </add>
+          <add partName="HaproxyDefault">
+            <initPropertyList>
+              <initProperty name="Setting" value="srvtimeout" />
+              <initProperty name="Value" value="50000" />
+            </initPropertyList>
+          </add>
+          <add partName="HaproxyDefault">
+            <initPropertyList>
+              <initProperty name="Setting" value="mode" />
+              <initProperty name="Value" value="http" />
+            </initPropertyList>
+          </add>
+          <add partName="HaproxyDefault">
+            <initPropertyList>
+              <initProperty name="Setting" value="option" />
+              <initProperty name="Value" value="redispatch" />
+            </initPropertyList>
+          </add>
+          <add partName="HaproxyDefault">
+            <initPropertyList>
+              <initProperty name="Setting" value="retries" />
+              <initProperty name="Value" value="3" />
+            </initPropertyList>
+          </add>
+        </init>        
+      </complexService>
+      <complexService name="CsLoadBalancers">
+        <partList>
+          <partService name="HaproxyListener" />
+        </partList>
+      </complexService>
+      <complexService name="CsLoadBalancing">
+        <partList>
+          <partService name="CsGlobalSettings" />
+          <partService name="CsLoadBalancerDefaults" />
+          <partService name="CsLoadBalancers" />
+        </partList>
+        <init>
+          <add partName="CsGlobalSettings"/>
+          <add partName="CsLoadBalancerDefaults"/>
+          <add partName="CsLoadBalancers"/>
+        </init>
+      </complexService>
+    </complexServiceList>
+  </servicesDescription>
+</provisioningDescription>
